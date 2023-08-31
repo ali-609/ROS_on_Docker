@@ -1,0 +1,2 @@
+python3-catkin-tools
+ros-noetic-usb-cam
