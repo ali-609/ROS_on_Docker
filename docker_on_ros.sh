@@ -2,6 +2,7 @@
 
 HOST_PATH=$(pwd)
 APT_LIST="python3-catkin-tools"
+GPU_FLAG=""
 
 # Check if apt_list.txt file exists
 if [[ -f "./apt_list.txt" ]]; then
@@ -16,7 +17,7 @@ while [[ $# -gt 0 ]]; do
   key="$1"
 
   case $key in
-    --docker-image)
+    --custom-image)
       DOCKER_IMAGE="$2"
       shift # past argument
       shift # past value
@@ -26,13 +27,17 @@ while [[ $# -gt 0 ]]; do
       shift # past argument
       shift # past value
       ;;
+    --gpu)  # added option to enable GPU
+      GPU_FLAG="--gpus all"
+      shift
+      ;;
     *)    # unknown option
       shift
       ;;
   esac
 done
 
-docker run -it --ulimit nofile=524228:524228 --privileged --gpus all \
+docker run -it --ulimit nofile=524228:524228 --privileged $GPU_FLAG \
   --env="DISPLAY" \
   --env="QT_X11_NO_MITSHM=1" \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
