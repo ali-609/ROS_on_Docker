@@ -1,9 +1,11 @@
 # ROS on Docker 
 
 This script is used to launch a Docker container with ROS (Robot Operating System) installed, along with specified packages, using the provided Docker image.
-Prerequisites
+### Prerequisites
 
-    Docker must be installed on your system.
+Docker 
+nvidia-docker or nvidia-container (optional)
+
 
 Usage
 
