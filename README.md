@@ -10,7 +10,7 @@ Docker provides isolated environments for Linux systems called containers. Conta
 The nicely done install and post-install instructions are provided in the official documentation.  \
 Ubuntu and Debian install: https://docs.docker.com/engine/install/debian/   \
 Fedora install: https://docs.docker.com/engine/install/fedora/     \
-Post-install steps (for all Linux versions): https://docs.docker.com/engine/install/linux-postinstall/   \
+Post-install steps (for all Linux versions): https://docs.docker.com/engine/install/linux-postinstall/   
 
 ### Nvidia-docker or Nvidia-container (optional)
 These packages make it possible for docker containers to interact with Nvidia GPUs. If you have no Nvidia GPU or integrated GPU enough, there is no need to install these packages.
