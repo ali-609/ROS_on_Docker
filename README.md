@@ -7,11 +7,16 @@ This script is used to launch a Docker container with ROS (Robot Operating Syste
 ### Docker
 Docker provides isolated environments for Linux systems called containers. Containers use the same kernel drivers as the host system and are capable of using system memory. However, docker containers use their own binaries and file systems. That solves general dependency problems of applications and makes everything portable. That is our case here. By using ROS in Docker, it is possible to use ROS in other Linux distros like Fedora, Arch Linux, or even with different versions of Ubuntu.
 
+The nicely done install and post-install instructions are provided in the official documentation.
+Ubuntu and Debian install: https://docs.docker.com/engine/install/debian/
+Fedora install: https://docs.docker.com/engine/install/fedora/
+Post-install steps (for all Linux versions): https://docs.docker.com/engine/install/linux-postinstall/
+
 ### Nvidia-docker or Nvidia-container (optional)
 These packages make it possible for docker containers to interact with Nvidia GPUs. If you have no Nvidia GPU or integrated GPU enough, there is no need to install these packages.
 
 
-Usage
+## Usage
 
 bash
 
