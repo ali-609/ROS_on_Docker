@@ -25,10 +25,13 @@ $ cd /path/to/script
 $ ./launch_ros_docker.sh [OPTIONS]
 ```
 
-    --custom-image IMAGE_NAME: Specify a custom Docker image to use for the ROS container. If not provided, the default image "osrf/ros:noetic-desktop-full" will be used.
-    --container-name NAME: Set a custom name for the Docker container. If not provided, the default name "ros-docker" will be used.
 
-Additional Configuration
+
+    --custom-image IMAGE_NAME : Specify a custom Docker image to use for the ROS container. If not provided, the default image "osrf/ros:noetic-desktop-full" will be used.
+    --container-name NAME : Set a custom name for the Docker container. If not provided, the default name "ros-docker" will be used.
+    --gpu: If packages for Nvidia GPU is installed provide GPU capabilities to container.
+
+
 
     APT_LIST File (Optional): You can create an apt_list.txt file in the same directory as the script to specify additional apt packages you want to install in the Docker container. Each package should be on a separate line. The script will read this file and install the listed packages.
 
