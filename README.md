@@ -36,7 +36,7 @@ $ ./launch_ros_docker.sh [OPTIONS]
 
 
 
-    APT_LIST File (Optional): You can create an apt_list.txt file in the same directory as the script to specify additional apt packages you want to install in the Docker container. Each package should be on a separate line. The script will read this file and install the listed packages.
+APT_LIST File: You can add apt packages to apt_list.txt file in the same directory as the script to specify additional packages you want to install in the Docker container. Each package should be on a separate line. The script will read this file and install the listed packages.
 
 
 ## Troubleshooting
