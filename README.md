@@ -18,12 +18,12 @@ These packages make it possible for docker containers to interact with Nvidia GP
 
 ## Usage
 
-bash
+The provided script binds it's located directory with /home directory in the container environment. This directory serves as our main catkin workspace. 
 
-./launch_ros_docker.sh [OPTIONS]
-
-Replace ./launch_ros_docker.sh with the actual path to the script.
-Options
+```console
+$ cd /path/to/script
+$ ./launch_ros_docker.sh [OPTIONS]
+```
 
     --custom-image IMAGE_NAME: Specify a custom Docker image to use for the ROS container. If not provided, the default image "osrf/ros:noetic-desktop-full" will be used.
     --container-name NAME: Set a custom name for the Docker container. If not provided, the default name "ros-docker" will be used.
@@ -51,6 +51,7 @@ Finally, the Docker container runs a Bash shell within the specified Docker imag
 
 Make sure to replace placeholders such as ./launch_ros_docker.sh with the actual script path and adjust any configurations to suit your needs.
 
+## Troubleshooting
+
 Remember to also ensure that you have the necessary permissions to run Docker commands and access the required devices on your system.
 
-Note: This documentation is based on the script's functionality up to the knowledge cutoff date in September 2021. If there have been any changes or updates to the script or its related technologies after that date, this documentation might not reflect those changes.
