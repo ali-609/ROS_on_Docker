@@ -27,6 +27,9 @@ $ ./launch_ros_docker.sh [OPTIONS]
 
 
 
+
+    
+    Options:
     --custom-image IMAGE_NAME : Specify a custom Docker image to use for the ROS container. If not provided, the default image "osrf/ros:noetic-desktop-full" will be used.
     --container-name NAME : Set a custom name for the Docker container. If not provided, the default name "ros-docker" will be used.
     --gpu: If packages for Nvidia GPU is installed provide GPU capabilities to container.
