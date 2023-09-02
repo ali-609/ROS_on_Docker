@@ -36,6 +36,8 @@ $ ./launch_ros_docker.sh [OPTIONS]
     --container-name NAME : Set a custom name for the Docker container. If not provided, the default name "ros-docker" will be used.
     --gpu: If packages for Nvidia GPU is installed provide GPU capabilities to container.
 
+
+APT_LIST File: You can add apt packages to apt_list.txt file in the same directory as the script to specify additional packages you want to install in the Docker container. Each package should be on a separate line. The script will read this file and install the listed packages.
 ### Accessing container
 Generally, the below command is used to access containers.
 ```console
@@ -66,7 +68,6 @@ The provided script generates container graphical capabilities even without Nvid
 ### Handling version control
 For version control as our script bind folder from host system with container we can just use host system to access files and use git operations
 
-APT_LIST File: You can add apt packages to apt_list.txt file in the same directory as the script to specify additional packages you want to install in the Docker container. Each package should be on a separate line. The script will read this file and install the listed packages.
 
 
 ## Troubleshooting
