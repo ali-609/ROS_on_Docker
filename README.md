@@ -78,4 +78,7 @@ For version control as our script bind folder from host system with container we
 ### Camera not working
 In Linux systems, everything is a file that includes peripherals like cameras. Given script bind /dev/camera1 file of the host system with /dev/camera1 of the container system. If you have some loopback device like v4l2loopback or a similar module, try removing it and trying again.
 
-###
+### Pull access denied
+Generally, docker is capable of pulling images needed for building containers from dockerhub. This error indicates either name of the image is wrong or the image is not in dockerhub anymore.
+
+
