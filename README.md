@@ -36,8 +36,9 @@ $ ./launch_ros_docker.sh [OPTIONS]
     
     Options:
     --custom-image IMAGE_NAME : Specify a custom Docker image to use for the ROS container. If not provided, the default image "osrf/ros:noetic-desktop-full" will be used.
-    --container-name NAME : Set a custom name for the Docker container. If not provided, the default name "ros-docker" will be used.
+    --container-name NAME : Set a custom name for the Docker container. If not provided, the default name "ros-docker" will be used. Useful if there need multiple container in same system. 
     --gpu: If packages for Nvidia GPU is installed provide GPU capabilities to container.
+    --video: Set camera device. If not provided "/dev/vidoe1" will be used.
 
 
 APT_LIST File: You can add apt packages to apt_list.txt file in the same directory as the script to specify additional packages you want to install in the Docker container. Each package should be on a separate line. The script will read this file and install the listed packages.
@@ -83,5 +84,7 @@ Another solution is changing camera device with "--video" flag for some reason y
 
 ### Pull access denied
 Generally, docker is capable of pulling images needed for building containers from dockerhub. This error indicates either name of the image is wrong or the image is not in dockerhub anymore.
+
+
 
 
