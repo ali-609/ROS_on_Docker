@@ -12,7 +12,7 @@ Ubuntu and Debian install: https://docs.docker.com/engine/install/debian/   \
 Fedora install: https://docs.docker.com/engine/install/fedora/     \
 Post-install steps (for all Linux versions): https://docs.docker.com/engine/install/linux-postinstall/   
 
-### Nvidia-docker or Nvidia-container (optional)
+### Nvidia-container (optional)
 These packages make it possible for docker containers to interact with Nvidia GPUs. If you have no Nvidia GPU or integrated GPU enough, there is no need to install these packages. \
 Install instructions: \
 Official documentation: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#id1 \
