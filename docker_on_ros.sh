@@ -76,9 +76,9 @@ docker run -it --ulimit nofile=524228:524228 --privileged $GPU_FLAG \
   --env="QT_X11_NO_MITSHM=1" \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   --volume="$HOST_PATH:/home" \
+  --volume="/etc/passwd:/etc/passwd:ro" \
   --device="$VIDEO_DEVICE:$VIDEO_DEVICE" \
-  --user "$HOST_UID:$HOST_GID" \
   --restart=always \
   --name "$CONTAINER_NAME" \
   "$DOCKER_IMAGE" \
-  /bin/bash -c "apt-get update ; apt-get install -y $APT_LIST; exec /bin/bash"
+  /bin/bash -c "apt-get update ; apt-get install -y $APT_LIST; chmod -R u+rwx,g+rwx /home; exec /bin/bash"
