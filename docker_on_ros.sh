@@ -13,6 +13,23 @@ fi
 DOCKER_IMAGE="osrf/ros:noetic-desktop-full"
 CONTAINER_NAME="ros-docker"
 
+HOST_UID=$(id -u)
+HOST_GID=$(id -g)
+
+# Define an array to hold valid flags
+VALID_FLAGS=(
+  "--custom-image"
+  "--container-name"
+  "--gpu"
+  "--video"
+)
+
+# Function to display error message and exit
+function display_error {
+  echo "Error: Invalid flag or missing argument: $1"
+  exit 1
+}
+
 # Parse command-line options
 while [[ $# -gt 0 ]]; do
   key="$1"
@@ -33,12 +50,23 @@ while [[ $# -gt 0 ]]; do
       shift
       ;;
     --video)
-      VIDEO_DEVICE="/dev/$2"
-      shift # past argument
-      shift # past value
+      # Check if the next argument exists
+      if [[ -n "$2" ]]; then
+        VIDEO_DEVICE="/dev/$2"
+        shift # past argument
+        shift # past value
+      else
+        display_error "$key"
+      fi
       ;;
     *)    # unknown option
-      shift
+      # Check if the unknown option starts with "--"
+      if [[ "$key" == --* ]]; then
+        display_error "$key"
+      else
+        # Handle non-flag arguments here, if needed
+        shift
+      fi
       ;;
   esac
 done
@@ -49,6 +77,7 @@ docker run -it --ulimit nofile=524228:524228 --privileged $GPU_FLAG \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   --volume="$HOST_PATH:/home" \
   --device="$VIDEO_DEVICE:$VIDEO_DEVICE" \
+  --user "$HOST_UID:$HOST_GID" \
   --restart=always \
   --name "$CONTAINER_NAME" \
   "$DOCKER_IMAGE" \
