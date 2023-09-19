@@ -13,8 +13,6 @@ fi
 DOCKER_IMAGE="osrf/ros:noetic-desktop-full"
 CONTAINER_NAME="ros-docker"
 
-HOST_UID=$(id -u)
-HOST_GID=$(id -g)
 
 # Define an array to hold valid flags
 VALID_FLAGS=(
