@@ -13,6 +13,8 @@ fi
 DOCKER_IMAGE="osrf/ros:noetic-desktop-full"
 CONTAINER_NAME="ros-docker"
 
+HOST_UID=$(id -u)
+HOST_GID=$(id -g)
 
 # Define an array to hold valid flags
 VALID_FLAGS=(
@@ -72,6 +74,7 @@ done
 docker run -it --ulimit nofile=524228:524228 --privileged $GPU_FLAG \
   --env="DISPLAY" \
   --env="QT_X11_NO_MITSHM=1" \
+  --network=host \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   --volume="$HOST_PATH:/home" \
   --volume="/etc/passwd:/etc/passwd:ro" \
